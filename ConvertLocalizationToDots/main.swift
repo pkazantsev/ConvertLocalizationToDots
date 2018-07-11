@@ -7,16 +7,10 @@
 //
 
 import Foundation
+import Commander
 
 /// return true if the element should be kept
 typealias RowFilter = (Row) -> Bool
-
-let sourceUrl = URL(fileURLWithPath: "/Users/p.kazantsev/Downloads/Localizable.strings")
-print(sourceUrl)
-let targetUrl = URL(fileURLWithPath: "/Users/p.kazantsev/Downloads/Localizable_dots.strings")
-print(targetUrl)
-
-let trie = Trie()
 
 let keysToSplit: [String] = [
     "confirm",
@@ -41,35 +35,27 @@ let rowFilters: [(RowFilter)] = [
     { !$0.key.contains("nfc") }
 ]
 
-// MARK: -
-do {
-    try String(contentsOf: sourceUrl, encoding: .utf8)
-        .split(separator: "\n")
-        .forEach { line in
-            if line.isEmpty {
-            }
-            else if line.starts(with: "//") {
-                // Section comment
-            }
-            else if let row = parseRow(line) {
-                if !rowFilters.reduce(true, { $0 && $1(row) }) {
-                    return
-                }
+command(
+    Argument<String>("source", description: "Path to a source .string file"),
+    Argument<String>("destination", description: "Path to a destination .string file")
+) { srcPath, dstPath in
+    let sourceUrl = URL(fileURLWithPath: srcPath)
+    print(sourceUrl)
+    let targetUrl = URL(fileURLWithPath: dstPath)
+    print(targetUrl)
+    do {
+        let trie = try parse(sourceUrl, filters: rowFilters)
 
-                let keySplit = row.key.split(separator: "_")
-                trie.insert(words: keySplit.map { String($0) }, value: row)
+        try trie.keyValuePairs(toSplit: keysToSplit, toNotSplit: keysToNotSplit)
+            .map { (key, row) -> String in
+                var updatedRow = row
+                updatedRow.key = key
+                return updatedRow.export()
             }
-        }
-    try trie.keyValuePairs(toSplit: keysToSplit, toNotSplit: keysToNotSplit)
-        .map { (key, row) -> String in
-            var updatedRow = row
-            updatedRow.key = key
-            return updatedRow.export()
-        }
-        .joined(separator: "\n")
-        .write(to: targetUrl, atomically: true, encoding: .utf8)
+            .joined(separator: "\n")
+            .write(to: targetUrl, atomically: true, encoding: .utf8)
+    } catch {
+        print(error)
+    }
 
-} catch {
-    print(error)
-}
-
+}.run()

@@ -10,6 +10,8 @@
 		4836BACA1F9F1F95000F4583 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836BAC91F9F1F95000F4583 /* main.swift */; };
 		4836BAD11F9F245A000F4583 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836BAD01F9F245A000F4583 /* Tree.swift */; };
 		4836BAD31F9F2CE5000F4583 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836BAD21F9F2CE5000F4583 /* Row.swift */; };
+		48C3641320F65F16000FB91E /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3641220F65F16000FB91E /* Converter.swift */; };
+		5B6F40930883B42469D22553 /* libPods-ConvertLocalizationToDots.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C769C6120849358C97E58FDB /* libPods-ConvertLocalizationToDots.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,10 @@
 		4836BAC91F9F1F95000F4583 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4836BAD01F9F245A000F4583 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		4836BAD21F9F2CE5000F4583 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		48C3641220F65F16000FB91E /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		A45ABC7F08BE8606F6CFA303 /* Pods-ConvertLocalizationToDots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertLocalizationToDots.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConvertLocalizationToDots/Pods-ConvertLocalizationToDots.release.xcconfig"; sourceTree = "<group>"; };
+		B65B70CA7E4BD76F856A64B1 /* Pods-ConvertLocalizationToDots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertLocalizationToDots.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConvertLocalizationToDots/Pods-ConvertLocalizationToDots.debug.xcconfig"; sourceTree = "<group>"; };
+		C769C6120849358C97E58FDB /* libPods-ConvertLocalizationToDots.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ConvertLocalizationToDots.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6F40930883B42469D22553 /* libPods-ConvertLocalizationToDots.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +54,8 @@
 			children = (
 				4836BAC81F9F1F95000F4583 /* ConvertLocalizationToDots */,
 				4836BAC71F9F1F95000F4583 /* Products */,
+				4983E498082A13A9CC97B008 /* Pods */,
+				8812C4035738A55B3691B43F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,10 +71,28 @@
 			isa = PBXGroup;
 			children = (
 				4836BAC91F9F1F95000F4583 /* main.swift */,
-				4836BAD01F9F245A000F4583 /* Tree.swift */,
+				48C3641220F65F16000FB91E /* Converter.swift */,
 				4836BAD21F9F2CE5000F4583 /* Row.swift */,
+				4836BAD01F9F245A000F4583 /* Tree.swift */,
 			);
 			path = ConvertLocalizationToDots;
+			sourceTree = "<group>";
+		};
+		4983E498082A13A9CC97B008 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B65B70CA7E4BD76F856A64B1 /* Pods-ConvertLocalizationToDots.debug.xcconfig */,
+				A45ABC7F08BE8606F6CFA303 /* Pods-ConvertLocalizationToDots.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8812C4035738A55B3691B43F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C769C6120849358C97E58FDB /* libPods-ConvertLocalizationToDots.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -75,6 +102,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4836BACD1F9F1F95000F4583 /* Build configuration list for PBXNativeTarget "ConvertLocalizationToDots" */;
 			buildPhases = (
+				EBD015B3CE6B8DE52CF58E2D /* [CP] Check Pods Manifest.lock */,
 				4836BAC21F9F1F95000F4583 /* Sources */,
 				4836BAC31F9F1F95000F4583 /* Frameworks */,
 				4836BAC41F9F1F95000F4583 /* CopyFiles */,
@@ -121,6 +149,27 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EBD015B3CE6B8DE52CF58E2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConvertLocalizationToDots-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4836BAC21F9F1F95000F4583 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -128,6 +177,7 @@
 			files = (
 				4836BACA1F9F1F95000F4583 /* main.swift in Sources */,
 				4836BAD31F9F2CE5000F4583 /* Row.swift in Sources */,
+				48C3641320F65F16000FB91E /* Converter.swift in Sources */,
 				4836BAD11F9F245A000F4583 /* Tree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,8 +293,11 @@
 		};
 		4836BACE1F9F1F95000F4583 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B65B70CA7E4BD76F856A64B1 /* Pods-ConvertLocalizationToDots.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -252,8 +305,11 @@
 		};
 		4836BACF1F9F1F95000F4583 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A45ABC7F08BE8606F6CFA303 /* Pods-ConvertLocalizationToDots.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
