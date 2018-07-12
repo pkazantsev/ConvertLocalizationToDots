@@ -18,7 +18,7 @@ func parse(_ sourceUrl: URL, filters: [RowFilter]) throws -> Trie {
             // Section comment
             else if line.starts(with: "//") {}
             else if let row = parseRow(line) {
-                if !rowFilters.reduce(true, { $0 && $1(row) }) {
+                if !filters.reduce(true, { $0 && $1(row) }) {
                     return
                 }
 

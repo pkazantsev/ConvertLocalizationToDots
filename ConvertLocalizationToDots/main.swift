@@ -9,44 +9,24 @@
 import Foundation
 import Commander
 
-/// return true if the element should be kept
-typealias RowFilter = (Row) -> Bool
-
-let keysToSplit: [String] = [
-    "confirm",
-    "send_feedback",
-    "set_pin",
-    "shortcut"
-]
-let keysToNotSplit: [String] = [
-    "application",
-    "cards.card",
-    "cards.title",
-    "registration.phone",
-    "send",
-    "settings.use",
-]
-let rowFilters: [(RowFilter)] = [
-    { !$0.key.isEmpty },
-    { $0.comment != "для WP" },
-    { !$0.key.hasPrefix("windows") },
-    { !$0.key.hasSuffix("wp") },
-    { !$0.key.contains("android") },
-    { !$0.key.contains("nfc") }
-]
-
 command(
     Argument<String>("source", description: "Path to a source .string file"),
-    Argument<String>("destination", description: "Path to a destination .string file")
-) { srcPath, dstPath in
-    let sourceUrl = URL(fileURLWithPath: srcPath)
-    print(sourceUrl)
-    let targetUrl = URL(fileURLWithPath: dstPath)
-    print(targetUrl)
-    do {
-        let trie = try parse(sourceUrl, filters: rowFilters)
+    Argument<String>("destination", description: "Path to a destination .string file"),
+    Option("config", default: "./dots.config", description: "Path to a configuration file")
+) { srcPath, dstPath, configPath in
+    let sourceUrl = URL(fileURLWithPath: NSString(string: srcPath).expandingTildeInPath)
+    print("from: \(sourceUrl)")
+    let targetUrl = URL(fileURLWithPath: NSString(string: dstPath).expandingTildeInPath)
+    print("to: \(targetUrl)")
+    let configUrl = URL(fileURLWithPath: NSString(string: configPath).expandingTildeInPath)
+    print("config: \(configUrl)")
 
-        try trie.keyValuePairs(toSplit: keysToSplit, toNotSplit: keysToNotSplit)
+    let config = Config(at: configUrl)
+    config.read()
+    do {
+        let trie = try parse(sourceUrl, filters: config.rowFilters)
+
+        try trie.keyValuePairs(toSplit: config.keysToSplit, toNotSplit: config.keysToNotSplit)
             .map { (key, row) -> String in
                 var updatedRow = row
                 updatedRow.key = key

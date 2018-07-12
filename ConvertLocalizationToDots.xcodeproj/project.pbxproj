@@ -11,6 +11,7 @@
 		4836BAD11F9F245A000F4583 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836BAD01F9F245A000F4583 /* Tree.swift */; };
 		4836BAD31F9F2CE5000F4583 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836BAD21F9F2CE5000F4583 /* Row.swift */; };
 		48C3641320F65F16000FB91E /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3641220F65F16000FB91E /* Converter.swift */; };
+		48C3641520F738F0000FB91E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3641420F738F0000FB91E /* Config.swift */; };
 		5B6F40930883B42469D22553 /* libPods-ConvertLocalizationToDots.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C769C6120849358C97E58FDB /* libPods-ConvertLocalizationToDots.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		4836BAD01F9F245A000F4583 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		4836BAD21F9F2CE5000F4583 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		48C3641220F65F16000FB91E /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		48C3641420F738F0000FB91E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A45ABC7F08BE8606F6CFA303 /* Pods-ConvertLocalizationToDots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertLocalizationToDots.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConvertLocalizationToDots/Pods-ConvertLocalizationToDots.release.xcconfig"; sourceTree = "<group>"; };
 		B65B70CA7E4BD76F856A64B1 /* Pods-ConvertLocalizationToDots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertLocalizationToDots.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConvertLocalizationToDots/Pods-ConvertLocalizationToDots.debug.xcconfig"; sourceTree = "<group>"; };
 		C769C6120849358C97E58FDB /* libPods-ConvertLocalizationToDots.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ConvertLocalizationToDots.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				4836BAC91F9F1F95000F4583 /* main.swift */,
+				48C3641420F738F0000FB91E /* Config.swift */,
 				48C3641220F65F16000FB91E /* Converter.swift */,
 				4836BAD21F9F2CE5000F4583 /* Row.swift */,
 				4836BAD01F9F245A000F4583 /* Tree.swift */,
@@ -177,6 +180,7 @@
 			files = (
 				4836BACA1F9F1F95000F4583 /* main.swift in Sources */,
 				4836BAD31F9F2CE5000F4583 /* Row.swift in Sources */,
+				48C3641520F738F0000FB91E /* Config.swift in Sources */,
 				48C3641320F65F16000FB91E /* Converter.swift in Sources */,
 				4836BAD11F9F245A000F4583 /* Tree.swift in Sources */,
 			);
