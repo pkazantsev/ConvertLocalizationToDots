@@ -27,12 +27,14 @@ command(
         let trie = try parse(sourceUrl, filters: config.rowFilters)
 
         try trie.keyValuePairs(toSplit: config.keysToSplit, toNotSplit: config.keysToNotSplit)
+            // Sort by key
+            .sorted { $0.0 < $1.0 }
             .map { (key, row) -> String in
                 var updatedRow = row
                 updatedRow.key = key
-                return updatedRow.export()
+                return updatedRow.export() + "\n"
             }
-            .joined(separator: "\n")
+            .joined()
             .write(to: targetUrl, atomically: true, encoding: .utf8)
     } catch {
         print(error)
