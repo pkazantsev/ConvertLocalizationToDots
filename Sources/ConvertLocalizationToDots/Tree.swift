@@ -61,7 +61,7 @@ class Trie {
     typealias Node = TrieNode<String, Row>
 
     public func keyValuePairs(toSplit: [String], toNotSplit: [String]) -> [(String, Row)] {
-        return keysInSubtrie(rootNode: root, partialKey: "", toSplit: Box(value: toSplit), toNotSplit: Box(value: toNotSplit)).flatMap {
+        return keysInSubtrie(rootNode: root, partialKey: "", toSplit: Box(value: toSplit), toNotSplit: Box(value: toNotSplit)).compactMap {
             if let value = $0.1 {
                 return ($0.0, value)
             } else {

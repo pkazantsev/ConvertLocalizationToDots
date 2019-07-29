@@ -86,7 +86,7 @@ class Config {
 
     private func parseFilter(from string: String) -> RowFilter? {
         // 1. find the value
-        let valueStartIndex = string.index(of: "\"") ?? string.endIndex
+        let valueStartIndex = string.firstIndex(of: "\"") ?? string.endIndex
 
         // 2. take the rest and find the column and the operator
         let ops = string[..<valueStartIndex].split(separator: " ")
