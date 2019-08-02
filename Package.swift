@@ -12,8 +12,5 @@ let package = Package(
         .target(
             name: "ConvertLocalizationToDots",
             dependencies: ["Commander"]),
-        .testTarget(
-            name: "ConvertLocalizationToDotsTests",
-            dependencies: ["ConvertLocalizationToDots"]),
     ]
 )
